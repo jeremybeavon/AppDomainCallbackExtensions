@@ -4,15 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A2B3E155-2E90-4AEB-842F-C83C0F81BF40}</ProjectGuid>
+    <ProjectGuid>{3CA713DA-15F3-4098-91D8-866AB3465ACC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AppDomainCallbackExtensions</RootNamespace>
     <AssemblyName>AppDomainCallbackExtensions</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>07d6846f</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>a0405624</NuGetPackageImportStamp>
     <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET30</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -28,21 +28,16 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;NET30</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TextSerialization">
-      <HintPath>..\packages\TextSerialization.1.0.0\lib\net40\TextSerialization.dll</HintPath>
+      <HintPath>..\packages\TextSerialization.1.0.0\lib\net30\TextSerialization.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +112,42 @@
     </Compile>
     <Compile Include="..\AppDomainCallbackExtensions\ICrossAppDomainCallback.generic.cs">
       <Link>ICrossAppDomainCallback.generic.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Action.generic2.cs">
+      <Link>System\Action.generic2.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Action.generic3.cs">
+      <Link>System\Action.generic3.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Action.generic4.cs">
+      <Link>System\Action.generic4.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Action.generic5.cs">
+      <Link>System\Action.generic5.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Action.generic6.cs">
+      <Link>System\Action.generic6.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Func.generic1.cs">
+      <Link>System\Func.generic1.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Func.generic2.cs">
+      <Link>System\Func.generic2.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Func.generic3.cs">
+      <Link>System\Func.generic3.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Func.generic4.cs">
+      <Link>System\Func.generic4.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Func.generic5.cs">
+      <Link>System\Func.generic5.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Func.generic6.cs">
+      <Link>System\Func.generic6.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\System\Func.generic7.cs">
+      <Link>System\Func.generic7.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Remoting;
 using TextSerialization;
 
 namespace AppDomainCallbackExtensions
@@ -7,7 +8,47 @@ namespace AppDomainCallbackExtensions
     {
         private static readonly CrossDomainId CrossDomainActionId = new CrossDomainId("CrossDomainAction");
 
-#if NET20
+#if NET20 || NET30
+        public static TInterface CreateProxy<T, TInterface, TSerializer>(
+            AppDomain domain,
+            WellKnownObjectMode mode,
+            TSerializer serializer)
+#else
+        public static TInterface CreateProxy<T, TInterface, TSerializer>(
+            this AppDomain domain,
+            WellKnownObjectMode mode,
+            TSerializer serializer)
+#endif
+            where T : TInterface, new()
+            where TSerializer : ITextSerialization, new()
+        {
+            return CreateProxy<T, TInterface, TSerializer>(domain, new T(), mode, serializer);
+        }
+
+#if NET20 || NET30
+        public static TInterface CreateProxy<T, TInterface, TSerializer>(
+            AppDomain domain,
+            T instance,
+            WellKnownObjectMode mode,
+            TSerializer serializer)
+#else
+        public static TInterface CreateProxy<T, TInterface, TSerializer>(
+            this AppDomain domain,
+            T instance,
+            WellKnownObjectMode mode,
+            TSerializer serializer)
+#endif
+            where T : TInterface, new()
+            where TSerializer : ITextSerialization, new()
+        {
+            return (TInterface)new CrossAppDomainProxy<T, TInterface, TSerializer>(
+                domain,
+                instance,
+                mode,
+                serializer).GetTransparentProxy();
+        }
+
+#if NET20 || NET30
         public static TOutput DoCallBack<TOutput, TSerializer>(
             AppDomain domain,
             Func<TOutput> staticCallback,
@@ -27,7 +68,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static TOutput DoCallBack<TInput, TOutput, TSerializer>(
             AppDomain domain,
             TInput input,
@@ -49,7 +90,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static TOutput DoCallBack<TInput1, TInput2, TOutput, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -73,7 +114,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static TOutput DoCallBack<TInput1, TInput2, TInput3, TOutput, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -99,7 +140,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static TOutput DoCallBack<TInput1, TInput2, TInput3, TInput4, TOutput, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -127,7 +168,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static TOutput DoCallBack<TInput1, TInput2, TInput3, TInput4, TInput5, TOutput, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -157,7 +198,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static TOutput DoCallBack<TInput1, TInput2, TInput3, TInput4, TInput5, TInput6, TOutput, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -189,7 +230,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static void DoCallBack<TInput, TSerializer>(
             AppDomain domain,
             TInput input,
@@ -211,7 +252,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static void DoCallBack<TInput1, TInput2, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -235,7 +276,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static void DoCallBack<TInput1, TInput2, TInput3, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -261,7 +302,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static void DoCallBack<TInput1, TInput2, TInput3, TInput4, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -289,7 +330,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static void DoCallBack<TInput1, TInput2, TInput3, TInput4, TInput5, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -319,7 +360,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static void DoCallBack<TInput1, TInput2, TInput3, TInput4, TInput5, TInput6, TSerializer>(
             AppDomain domain,
             TInput1 input1,
@@ -351,7 +392,7 @@ namespace AppDomainCallbackExtensions
                 serializer);
         }
 
-#if NET20
+#if NET20 || NET30
         public static void DoCallBack<TCallback, TSerializer>(
             AppDomain domain,
             TCallback callback,
@@ -369,7 +410,7 @@ namespace AppDomainCallbackExtensions
             domain.DoCallBack(DoCallBack<TCallback, TSerializer>);
         }
 
-#if NET20
+#if NET20 || NET30
         public static TResponse DoCallBackWithResponse<TCallback, TSerializer, TResponse>(
             AppDomain domain,
             TCallback callback,

@@ -1,10 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
+#if !NET20
+using System.Runtime.Serialization;
+#endif
 
 namespace AppDomainCallbackExtensions
 {
+    [Serializable]
+#if !NET20
+    [DataContract]
+#endif
     public class CrossAppDomainActionCallback<TInput> : AbstractCrossAppDomainDelegateCallback
     {
         public CrossAppDomainActionCallback()
@@ -17,6 +22,9 @@ namespace AppDomainCallbackExtensions
             Input = input;
         }
 
+#if !NET20
+        [DataMember]
+#endif
         public virtual TInput Input { get; set; }
 
         protected override Type[] GetParameterTypes()

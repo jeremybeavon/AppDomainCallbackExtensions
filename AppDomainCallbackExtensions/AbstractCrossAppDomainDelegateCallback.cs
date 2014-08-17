@@ -1,8 +1,15 @@
 ﻿using System;
 using System.Reflection;
+#if !NET20
+using System.Runtime.Serialization;
+#endif
 
 namespace AppDomainCallbackExtensions
 {
+    [Serializable]
+#if !NET20
+    [DataContract]
+#endif
     public abstract class AbstractCrossAppDomainDelegateCallback : ICrossAppDomainCallback
     {
         private const BindingFlags Flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
@@ -18,10 +25,19 @@ namespace AppDomainCallbackExtensions
             MethodName = method.Name;
         }
 
+#if !NET20
+        [DataMember]
+#endif
         public virtual string AssemblyPath { get; set; }
 
+#if !NET20
+        [DataMember]
+#endif
         public virtual string TypeName { get; set; }
 
+#if !NET20
+        [DataMember]
+#endif
         public virtual string MethodName { get; set; }
 
         public void Callback()

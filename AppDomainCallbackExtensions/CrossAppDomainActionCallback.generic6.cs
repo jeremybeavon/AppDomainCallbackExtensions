@@ -1,8 +1,15 @@
 ﻿using System;
 using System.Reflection;
+#if !NET20
+using System.Runtime.Serialization;
+#endif
 
 namespace AppDomainCallbackExtensions
 {
+    [Serializable]
+#if !NET20
+    [DataContract]
+#endif
     public class CrossAppDomainActionCallback<TInput1, TInput2, TInput3, TInput4, TInput5, TInput6> :
         CrossAppDomainActionCallback<TInput1, TInput2, TInput3, TInput4, TInput5>
     {
@@ -23,6 +30,9 @@ namespace AppDomainCallbackExtensions
             Input6 = input6;
         }
 
+#if !NET20
+        [DataMember]
+#endif
         public virtual TInput6 Input6 { get; set; }
 
         protected override Type[] GetParameterTypes()

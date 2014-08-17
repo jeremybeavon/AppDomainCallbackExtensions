@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="AbstractCrossAppDomainDelegateCallback.cs" />
     <Compile Include="AbstractCrossAppDomainFuncCallback.cs" />
+    <Compile Include="AbstractCrossAppDomainProxyCallback.cs" />
     <Compile Include="AppDomainExtensions.cs" />
     <Compile Include="CrossAppDomainActionCallback.generic6.cs" />
     <Compile Include="CrossAppDomainActionCallback.generic5.cs" />
@@ -55,6 +56,10 @@
     <Compile Include="CrossAppDomainFuncCallback.generic4.cs" />
     <Compile Include="CrossAppDomainFuncCallback.generic3.cs" />
     <Compile Include="CrossAppDomainFuncCallback.generic2.cs" />
+    <Compile Include="CrossAppDomainProxy.cs" />
+    <Compile Include="CrossAppDomainProxySingleCallCallback.cs" />
+    <Compile Include="CrossAppDomainProxySingletonCallback.cs" />
+    <Compile Include="CrossAppDomainProxyHelper.cs" />
     <Compile Include="CrossDomainId.cs" />
     <Compile Include="System\Action.generic6.cs" />
     <Compile Include="System\Action.generic5.cs" />

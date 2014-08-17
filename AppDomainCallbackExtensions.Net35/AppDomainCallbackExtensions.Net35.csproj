@@ -49,6 +49,9 @@
     <Compile Include="..\AppDomainCallbackExtensions\AbstractCrossAppDomainFuncCallback.cs">
       <Link>AbstractCrossAppDomainFuncCallback.cs</Link>
     </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\AbstractCrossAppDomainProxyCallback.cs">
+      <Link>AbstractCrossAppDomainProxyCallback.cs</Link>
+    </Compile>
     <Compile Include="..\AppDomainCallbackExtensions\AppDomainExtensions.cs">
       <Link>AppDomainExtensions.cs</Link>
     </Compile>
@@ -90,6 +93,18 @@
     </Compile>
     <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainFuncCallback.generic7.cs">
       <Link>CrossAppDomainFuncCallback.generic7.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainProxy.cs">
+      <Link>CrossAppDomainProxy.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainProxyHelper.cs">
+      <Link>CrossAppDomainProxyHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainProxySingleCallCallback.cs">
+      <Link>CrossAppDomainProxySingleCallCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainProxySingletonCallback.cs">
+      <Link>CrossAppDomainProxySingletonCallback.cs</Link>
     </Compile>
     <Compile Include="..\AppDomainCallbackExtensions\CrossDomainId.cs">
       <Link>CrossDomainId.cs</Link>

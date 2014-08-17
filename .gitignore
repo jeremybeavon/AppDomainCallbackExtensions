@@ -215,3 +215,4 @@ $RECYCLE.BIN/
 /TextSerialization.sln.ide
 AppDomainCallbackExtensions.sln.ide/edb.chk
 /AppDomainCallbackExtensions.sln.ide
+*.nupkg

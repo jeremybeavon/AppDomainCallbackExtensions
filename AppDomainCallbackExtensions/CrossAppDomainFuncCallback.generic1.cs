@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Reflection;
+#if !NET20
+using System.Runtime.Serialization;
+#endif
 
 namespace AppDomainCallbackExtensions
 {
     [Serializable]
+#if !NET20
+    [DataContract]
+#endif
     public class CrossAppDomainFuncCallback<TOutput> : AbstractCrossAppDomainFuncCallback<TOutput>
     {
         public CrossAppDomainFuncCallback()
