@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2B3E155-2E90-4AEB-842F-C83C0F81BF40}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppDomainCallbackExtensions</RootNamespace>
+    <AssemblyName>AppDomainCallbackExtensions</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>07d6846f</NuGetPackageImportStamp>
+    <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TextSerialization">
+      <HintPath>..\packages\TextSerialization.1.0.0\lib\net40\TextSerialization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AppDomainCallbackExtensions\AbstractCrossAppDomainDelegateCallback.cs">
+      <Link>AbstractCrossAppDomainDelegateCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\AbstractCrossAppDomainFuncCallback.cs">
+      <Link>AbstractCrossAppDomainFuncCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\AppDomainExtensions.cs">
+      <Link>AppDomainExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainActionCallback.generic1.cs">
+      <Link>CrossAppDomainActionCallback.generic1.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainActionCallback.generic2.cs">
+      <Link>CrossAppDomainActionCallback.generic2.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainActionCallback.generic3.cs">
+      <Link>CrossAppDomainActionCallback.generic3.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainActionCallback.generic4.cs">
+      <Link>CrossAppDomainActionCallback.generic4.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainActionCallback.generic5.cs">
+      <Link>CrossAppDomainActionCallback.generic5.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainActionCallback.generic6.cs">
+      <Link>CrossAppDomainActionCallback.generic6.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainFuncCallback.generic1.cs">
+      <Link>CrossAppDomainFuncCallback.generic1.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainFuncCallback.generic2.cs">
+      <Link>CrossAppDomainFuncCallback.generic2.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainFuncCallback.generic3.cs">
+      <Link>CrossAppDomainFuncCallback.generic3.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainFuncCallback.generic4.cs">
+      <Link>CrossAppDomainFuncCallback.generic4.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainFuncCallback.generic5.cs">
+      <Link>CrossAppDomainFuncCallback.generic5.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainFuncCallback.generic6.cs">
+      <Link>CrossAppDomainFuncCallback.generic6.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainFuncCallback.generic7.cs">
+      <Link>CrossAppDomainFuncCallback.generic7.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\CrossDomainId.cs">
+      <Link>CrossDomainId.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\ICrossAppDomainCallback.cs">
+      <Link>ICrossAppDomainCallback.cs</Link>
+    </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\ICrossAppDomainCallback.generic.cs">
+      <Link>ICrossAppDomainCallback.generic.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets" Condition="Exists('..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
