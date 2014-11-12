@@ -16,9 +16,10 @@ namespace AppDomainCallbackExtensions
         {
         }
 
-        public CrossAppDomainProxySingletonCallback(IMethodMessage message)
+        public CrossAppDomainProxySingletonCallback(IMethodMessage message, Guid proxyId)
             : base(message)
         {
+            ProxyId = proxyId;
         }
 
 #if !NET20

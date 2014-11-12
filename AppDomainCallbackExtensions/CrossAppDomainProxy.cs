@@ -29,7 +29,7 @@ namespace AppDomainCallbackExtensions
                 AppDomainCallbackExtensions.DoCallBack(
                     domain,
                     ProxyId,
-                    instance,
+                    (object)instance,
                     CrossAppDomainProxyHelper.RegisterSingletonInstance,
                     serializer);
             }
@@ -68,7 +68,7 @@ namespace AppDomainCallbackExtensions
             {
                 response = AppDomainCallbackExtensions.DoCallBackWithResponse<CrossAppDomainProxySingletonCallback<T>, TSerializer, object>(
                     domain,
-                    new CrossAppDomainProxySingletonCallback<T>(message),
+                    new CrossAppDomainProxySingletonCallback<T>(message, ProxyId),
                     serializer);
             }
 

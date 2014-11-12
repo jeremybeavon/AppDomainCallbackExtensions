@@ -10,7 +10,7 @@ namespace AppDomainCallbackExtensions
         private static readonly IDictionary<Guid, object> SingletonInstances =
             new Dictionary<Guid, object>();
 
-        public static void RegisterSingletonInstance<T>(Guid proxyId, T instance)
+        public static void RegisterSingletonInstance(Guid proxyId, object instance)
         {
             lock (SingletonInstanceLock)
             {
