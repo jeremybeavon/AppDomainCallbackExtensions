@@ -53,6 +53,9 @@
     <Compile Include="..\AppDomainCallbackExtensions\AppDomainExtensions.cs">
       <Link>AppDomainExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\AppDomainCallbackExtensions\AssemblyResolver.cs">
+      <Link>AssemblyResolver.cs</Link>
+    </Compile>
     <Compile Include="..\AppDomainCallbackExtensions\CrossAppDomainActionCallback.generic1.cs">
       <Link>CrossAppDomainActionCallback.generic1.cs</Link>
     </Compile>

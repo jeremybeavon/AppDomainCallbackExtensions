@@ -43,6 +43,7 @@
     <Compile Include="AbstractCrossAppDomainFuncCallback.cs" />
     <Compile Include="AbstractCrossAppDomainProxyCallback.cs" />
     <Compile Include="AppDomainExtensions.cs" />
+    <Compile Include="AssemblyResolver.cs" />
     <Compile Include="CrossAppDomainActionCallback.generic6.cs" />
     <Compile Include="CrossAppDomainActionCallback.generic5.cs" />
     <Compile Include="CrossAppDomainActionCallback.generic4.cs" />

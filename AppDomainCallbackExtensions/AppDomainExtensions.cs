@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Remoting;
 using TextSerialization;
 
@@ -46,6 +47,25 @@ namespace AppDomainCallbackExtensions
                 instance,
                 mode,
                 serializer).GetTransparentProxy();
+        }
+
+#if NET20 || NET30
+        public static void AddResolveDirectory(AppDomain domain, string directory)
+#else
+        public static void AddResolveDirectory(this AppDomain domain, string directory)
+#endif
+        {
+            CreateInstanceFromAndUnwrap<AssemblyResolver>(domain).AddResolveDirectory(directory);
+        }
+
+#if NET20 || NET30
+        public static T CreateInstanceFromAndUnwrap<T>(AppDomain domain)
+#else
+        public static T CreateInstanceFromAndUnwrap<T>(this AppDomain domain)
+#endif
+            where T : MarshalByRefObject
+        {
+            return (T)domain.CreateInstanceFromAndUnwrap(typeof(T).Assembly.Location, typeof(T).FullName);
         }
 
 #if NET20 || NET30
@@ -151,7 +171,7 @@ namespace AppDomainCallbackExtensions
             TSerializer serializer)
 #else
         public static TOutput DoCallBack<TInput1, TInput2, TInput3, TInput4, TOutput, TSerializer>(
-            AppDomain domain,
+            this AppDomain domain,
             TInput1 input1,
             TInput2 input2,
             TInput3 input3,
@@ -286,7 +306,7 @@ namespace AppDomainCallbackExtensions
             TSerializer serializer)
 #else
         public static void DoCallBack<TInput1, TInput2, TInput3, TSerializer>(
-            AppDomain domain,
+            this AppDomain domain,
             TInput1 input1,
             TInput2 input2,
             TInput3 input3,
@@ -373,7 +393,7 @@ namespace AppDomainCallbackExtensions
             TSerializer serializer)
 #else
         public static void DoCallBack<TInput1, TInput2, TInput3, TInput4, TInput5, TInput6, TSerializer>(
-            AppDomain domain,
+            this AppDomain domain,
             TInput1 input1,
             TInput2 input2,
             TInput3 input3,
@@ -383,7 +403,7 @@ namespace AppDomainCallbackExtensions
             Action<TInput1, TInput2, TInput3, TInput4, TInput5, TInput6> staticCallback,
             TSerializer serializer)
 #endif
-            where TSerializer : ITextSerialization, new()
+ where TSerializer : ITextSerialization, new()
         {
             ValidateCallback(staticCallback);
             DoCallBack(
@@ -399,7 +419,7 @@ namespace AppDomainCallbackExtensions
             TSerializer serializer)
 #else
         public static void DoCallBack<TCallback, TSerializer>(
-            AppDomain domain,
+            this AppDomain domain,
             TCallback callback,
             TSerializer serializer)
 #endif
@@ -417,7 +437,7 @@ namespace AppDomainCallbackExtensions
             TSerializer serializer)
 #else
         public static TResponse DoCallBackWithResponse<TCallback, TSerializer, TResponse>(
-            AppDomain domain,
+            this AppDomain domain,
             TCallback callback,
             TSerializer serializer)
 #endif
