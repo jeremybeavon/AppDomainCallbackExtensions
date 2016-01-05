@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Remoting;
 using TextSerialization;
 
@@ -462,7 +461,7 @@ namespace AppDomainCallbackExtensions
             where TSerializer : ITextSerialization, new()
         {
             TSerializer serializer = new TSerializer();
-            ICrossAppDomainCallback<TResponse> callback = CreateCallback<TCallback>(serializer);
+            TCallback callback = CreateCallback<TCallback>(serializer);
             callback.Callback();
             AppDomain.CurrentDomain.SetData(CrossDomainActionId.Id, serializer.ToText(callback));
         }
